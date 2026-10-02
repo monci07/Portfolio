@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Contact page</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <h1>Contact page</h1>
+    <nav>
+        <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="./index.html">Contact</a></li>
+            <li><a href="../projects/index.html">Projects page</a></li>
+            <li><a href="../CV/index.html">CV</a></li>
+            <li><a href="https://github.com/monci07" target="_blank">Github page</a></li>
+        </ul>
+    </nav>
+    <form class="contact-form" action="mailto:dmoncivais@ucsd.com" method="POST" enctype="text/plain">
+        <label>E-mail: </label><input name="email" type="email">
+        <label>Subject: </label> <input name="subject">
+        <label>Message: </label>
+        <textarea name="body"></textarea>
+        <button type="submit">Send!</button>
+    </form>
+</body>
+</html>

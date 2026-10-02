@@ -1,0 +1,364 @@
+/* ==========================================================
+   style.css — Home, Projects y Contact
+   Enlázalo en cada página con:
+   <link rel="stylesheet" href="style.css">   (raíz)
+   <link rel="stylesheet" href="../style.css"> (subcarpetas)
+   ========================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:wght@600;700&display=swap");
+
+/* ---------- Variables ---------- */
+:root {
+    --bg: #f2f4f7;
+    --surface: #ffffff;
+    --ink: #16202c;
+    --muted: #5b6775;
+    --line: #d5dae1;
+    --accent: #2748e8;
+    --accent-ink: #ffffff;
+
+    --font-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --font-head: "Source Serif 4", Georgia, "Times New Roman", serif;
+
+    --radius: 6px;
+    --page-width: 62rem;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg: #10161d;
+        --surface: #17202a;
+        --ink: #e8edf3;
+        --muted: #9aa6b4;
+        --line: #2a3644;
+        --accent: #7b93ff;
+        --accent-ink: #10161d;
+    }
+}
+
+/* ---------- Base ---------- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-body);
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    color: var(--ink);
+    background: var(--bg);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    color: var(--accent);
+    text-underline-offset: 0.2em;
+}
+
+a:hover {
+    text-decoration-thickness: 2px;
+}
+
+:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+}
+
+h1,
+h2,
+h3 {
+    font-family: var(--font-head);
+    line-height: 1.15;
+    margin: 0 0 0.6em;
+}
+
+h1 {
+    font-size: clamp(2.4rem, 6vw, 4rem);
+    letter-spacing: -0.02em;
+}
+
+h2 {
+    font-size: clamp(1.6rem, 3.5vw, 2.1rem);
+}
+
+h3 {
+    font-size: 1.25rem;
+}
+
+p {
+    margin: 0 0 1em;
+    max-width: 65ch;
+}
+
+/* ---------- Header y navegación ---------- */
+header {
+    background: var(--surface);
+    border-bottom: 1px solid var(--line);
+}
+
+nav {
+    max-width: none;
+    margin: 0;
+    padding: 1rem 1.5rem;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.75rem;
+}
+
+nav a {
+    display: inline-block;
+    padding: 0.25rem 0;
+    color: var(--muted);
+    font-weight: 500;
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+}
+
+nav a:hover {
+    color: var(--ink);
+}
+
+/* Página actual: agrega class="active" o aria-current="page" al enlace */
+nav a.active,
+nav a[aria-current="page"] {
+    color: var(--ink);
+    border-bottom-color: var(--accent);
+}
+
+/* ---------- Layout general ---------- */
+main {
+    max-width: var(--page-width);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.section {
+    padding: 3.5rem 0;
+}
+
+.section + .section {
+    border-top: 1px solid var(--line);
+}
+
+/* ---------- Home: hero con cuadrícula tipo papel milimetrado ---------- */
+.hero {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    align-items: center;
+    padding: 4rem 1.5rem;
+    margin: 2rem 0 0;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background-color: var(--surface);
+    background-image:
+        linear-gradient(var(--line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size: 32px 32px;
+    background-position: -1px -1px;
+}
+
+.hero > * {
+    background: var(--surface);
+    padding: 0.25rem 0.5rem;
+    width: fit-content;
+}
+
+.hero h1 {
+    margin-bottom: 0.3em;
+}
+
+.hero p {
+    color: var(--muted);
+    font-size: 1.15rem;
+}
+
+.hero img,
+.profile-img {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid var(--surface);
+    outline: 1px solid var(--line);
+}
+
+@media (min-width: 720px) {
+    .hero {
+        grid-template-columns: 1fr auto;
+        padding: 4.5rem 3rem;
+    }
+
+    .hero img {
+        order: 2;
+    }
+}
+
+/* ---------- Botones ---------- */
+.btn {
+    display: inline-block;
+    padding: 0.7rem 1.4rem;
+    font: inherit;
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--accent-ink);
+    background: var(--accent);
+    border: 2px solid var(--accent);
+    border-radius: var(--radius);
+    cursor: pointer;
+}
+
+.btn:hover {
+    filter: brightness(1.1);
+}
+
+.btn-outline {
+    color: var(--accent);
+    background: transparent;
+}
+
+.btn-outline:hover {
+    background: var(--accent);
+    color: var(--accent-ink);
+    filter: none;
+}
+
+.actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+}
+
+/* ---------- Projects ---------- */
+.projects {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+@media (min-width: 720px) {
+    .projects {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.project {
+    padding: 0 0 0 1.25rem;
+    border-left: 4px solid var(--accent);
+}
+
+.project h3 {
+    margin-bottom: 0.3em;
+}
+
+.project p {
+    color: var(--muted);
+    margin-bottom: 0.75rem;
+}
+
+.project a {
+    font-weight: 600;
+}
+
+/* Etiquetas de tecnologías: <ul class="tags"><li>Python</li>... */
+.tags {
+    list-style: none;
+    margin: 0 0 0.75rem;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
+.tags li {
+    padding: 0.1rem 0.6rem;
+    font-size: 0.875rem;
+    color: var(--muted);
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+}
+
+/* ---------- Contact ---------- */
+.contact-form {
+    display: grid;
+    gap: 1.25rem;
+    max-width: 36rem;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 0.35rem;
+    font-weight: 600;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 0.7rem 0.85rem;
+    font: inherit;
+    color: var(--ink);
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: var(--accent);
+}
+
+.contact-form textarea {
+    min-height: 9rem;
+    resize: vertical;
+}
+
+.contact-form .btn {
+    justify-self: start;
+}
+
+/* Lista de enlaces de contacto (email, LinkedIn, GitHub) */
+.contact-links {
+    list-style: none;
+    margin: 0 0 2rem;
+    padding: 0;
+    display: grid;
+    gap: 0.5rem;
+}
+
+/* ---------- Footer ---------- */
+footer {
+    max-width: var(--page-width);
+    margin: 2rem auto 0;
+    padding: 2rem 1.5rem;
+    color: var(--muted);
+    font-size: 0.9rem;
+    border-top: 1px solid var(--line);
+}
+
+/* ---------- Accesibilidad ---------- */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+}
