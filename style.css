@@ -111,3 +111,51 @@ label.color-scheme{
     top: 1rem;
     right: 1rem;
 }
+
+#projects-plot {
+    max-width: 20em;
+    margin-block: 2em;
+    overflow: visible;
+}
+
+.swatch {
+    display: inline-block;
+    width: 1em;
+    aspect-ratio: 1 / 1;
+    background-color: var(--color);
+    border-radius: 50%;
+}
+
+ul.legend{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(9em, 1fr));
+    flex: 1;
+}
+
+li.legend-items{
+    display: flex;
+    align-items: center;
+}
+
+div.container{
+    display: flex;
+    gap: 1em;
+    align-items: center;
+}
+
+&:has(path:hover) {
+  path:not(:hover) {
+    opacity: 0.5;
+  }
+}
+path {
+  transition: 300ms;
+}
+
+.selected {
+  --color: oklch(54.23% 0.27465 308.72) !important;
+
+  &:is(path) {
+    fill: var(--color);
+  }
+}

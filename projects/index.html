@@ -1,16 +1,26 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio - Projects page</title>
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../style.css" />
     <script src="../global.js" type="module"></script>
     <script src="projects.js" type="module"></script>
-</head>
-<body>
+  </head>
+  <body>
     <h1 class="projects-title"></h1>
-    
+    <div class="container">
+      <input
+        class="searchBar"
+        type="search"
+        aria-label="Search projects"
+        placeholder="🔍 Search projects…"
+      />
+
+      <svg id="projects-plot" viewBox="-50 -50 100 100"></svg>
+      <ul class="legend"></ul>
+    </div>
     <!-- <table>
         <tr>
             <td>
@@ -45,8 +55,6 @@
             <td>A desktop application built with JavaFX to catalog and manage a personal Yu-Gi-Oh! trading card collection. It provides a searchable, filterable table view of every card in the collection, backed by a SQL Server database, along with a Python maintenance script for database upkeep.</td>
         </tr>
     </table> -->
-    <div class="projects">
-        
-    </div>
-</body>
+    <div class="projects"></div>
+  </body>
 </html>
