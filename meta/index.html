@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio - Curriculum vitae</title>
+    <link rel="stylesheet" href="../style.css" />
+    <script src="../global.js" type="module"></script>
+    <script src="main.js" type="module"></script>
+  </head>
+  <body>
+    <div id="stats">
+      <h2>Summary</h2>
+    </div>
+    <h2>Commits by time of day</h2>
+    <div id="chart"></div>
+    <dl id="commit-tooltip" class="info tooltip" hidden>
+      <dt>Commit</dt>
+      <dd>
+        <a href="" id="commit-link" target="_blank"></a>
+      </dd>
+
+      <dt>Date</dt>
+      <dd id="commit-date"></dd>
+
+      <!-- Add: Time, author, lines edited -->
+    </dl>
+	<p id="selection-count">No commits selected</p>
+	<dl id="language-breakdown" class="stats"></dl>
+  </body>
+</html>
