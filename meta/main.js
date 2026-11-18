@@ -383,7 +383,7 @@ let slider = document.getElementById("commit-progress");
 slider.addEventListener("change", (c) => {
   commitProgress = c.target.value;
   commitMaxTime = timeScale.invert(commitProgress);
-  timeElement.textContent = commitMaxTime;
+  timeElement.textContent = commitMaxTime.toLocaleString();
   filteredCommits = commits.filter((d) => d.datetime <= commitMaxTime);
   updateScatterPlot(data, filteredCommits);
   updateFileDisplay(filteredCommits);
@@ -425,8 +425,11 @@ d3.select("#scatter-story")
   );
 
 function onStepEnter(response) {
+  commitProgress = timeScale(commitMaxTime);
+  slider.value = commitProgress;
   commitMaxTime = response.element.__data__.datetime;
   filteredCommits = commits.filter((d) => d.datetime <= commitMaxTime);
+  timeElement.textContent = commitMaxTime.toLocaleString();
   updateScatterPlot(data, filteredCommits);
   updateFileDisplay(filteredCommits);
 }
